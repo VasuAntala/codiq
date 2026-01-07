@@ -5,7 +5,7 @@ import { BrainCircuit, ShieldCheck, Layers3, Zap } from "lucide-react"
 
 export function Approach() {
     return (
-        <section className="bg-slate-50 py-32">
+        <section className="bg-blue-50 py-32">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="grid gap-16 lg:grid-cols-2">
                     {/* Left content */}

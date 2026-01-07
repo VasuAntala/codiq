@@ -35,7 +35,7 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials() {
   return (
-    <section className="relative bg-slate-50 py-28">
+    <section className="relative bg-blue-50 py-28">
       {/* Soft accent */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute right-0 top-20 h-[350px] w-[350px] rounded-full bg-blue-100 blur-3xl opacity-50" />
