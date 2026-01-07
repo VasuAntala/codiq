@@ -52,7 +52,7 @@ export default function Header() {
                 <Code2 className="text-white w-5 h-5" />
               </div>
               <span className="text-xl font-bold text-gray-900">
-                Codiq Technologies
+                Codiq Solutions
               </span>
             </Link>
 
