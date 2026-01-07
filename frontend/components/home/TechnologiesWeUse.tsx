@@ -51,7 +51,7 @@ const techStack = [
 
 export default function TechnologiesWeUse() {
   return (
-    <section className="relative bg-white py-32">
+    <section className="relative bg-slate-50 py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-2">
           {/* LEFT CONTENT */}

@@ -4,6 +4,7 @@ import CTA from "@/components/home/CTA"
 import Services from "@/components/home/Services"
 import WhyChooseUs from "@/components/home/WhyChooseUs"
 import TechnologiesWeUse from "@/components/home/TechnologiesWeUse"
+import CompanyStats from "@/components/home/CompanyStats"
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Approach />
       <WhyChooseUs />
       <TechnologiesWeUse />
+      <CompanyStats />
       <CTA />
     </>
   )
