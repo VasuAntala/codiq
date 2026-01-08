@@ -169,7 +169,7 @@ export default function CareersPage() {
           bg-white
           w-full
           max-w-xl
-          h-[800px]
+          h-[725px]
           rounded-3xl
           p-8
           relative
@@ -193,7 +193,7 @@ export default function CareersPage() {
                             </p>
 
                             {/* Scrollable Content */}
-                            <div className="h-[calc(800px-140px)] overflow-y-auto pr-2">
+                            <div className="h-[600px] overflow-y-auto pr-2">
                                 <form onSubmit={handleSubmit} className="space-y-5">
                                     <Input
                                         label="Full Name"
