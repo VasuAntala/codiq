@@ -4,22 +4,22 @@ import { motion } from "framer-motion"
 
 const stats = [
   {
-    value: "120+",
+    value: "10+",
     label: "Projects Delivered",
     description: "Successfully completed products across multiple industries.",
   },
   {
-    value: "60+",
+    value: "5+",
     label: "Happy Clients",
     description: "Long-term partnerships built on trust and performance.",
   },
   {
-    value: "5+",
+    value: "1+",
     label: "Years of Experience",
     description: "Consistent growth and technical excellence.",
   },
   {
-    value: "15+",
+    value: "10+",
     label: "Team Members",
     description: "Skilled developers, designers, and engineers.",
   },

@@ -2,9 +2,10 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { Menu, Code2 } from "lucide-react"
+import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -20,7 +21,6 @@ const navigation = [
   { name: "Services", href: "/services" },
   { name: "Products", href: "/products" },
   { name: "Technologies", href: "/technologies" },
-  { name: "Contact", href: "/contact" },
 ]
 
 export default function Header() {
@@ -40,20 +40,23 @@ export default function Header() {
         className={cn(
           "transition-all duration-300",
           scrolled
-            ? "bg-white/90 backdrop-blur shadow-md"
-            : "bg-white"
+            ? "bg-[#001B3D]/95 backdrop-blur shadow-lg"
+            : "bg-[#001B3D]"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="h-16 flex items-center justify-between">
             {/* LOGO */}
-            <Link href="/" className="flex items-center gap-2">
-              <div className="h-10 w-10 rounded-xl bg-blue-600 flex items-center justify-center">
-                <Code2 className="text-white w-5 h-5" />
-              </div>
-              <span className="text-xl font-bold text-gray-900">
-                Codiq Solutions
-              </span>
+            <Link href="/" className="flex items-center gap-3">
+              {/* ICON LOGO */}
+              <Image
+                src="/c_logo.PNG"        // icon logo
+                alt="Codiq Icon Logo"
+                width={100}
+                height={100}
+                className="rounded-md"
+                priority
+              />
             </Link>
 
             {/* DESKTOP MENU */}
@@ -65,15 +68,15 @@ export default function Header() {
                   className={cn(
                     "relative px-4 py-2 text-sm font-medium rounded-full transition",
                     pathname === item.href
-                      ? "text-blue-600"
-                      : "text-gray-600 hover:text-gray-900"
+                      ? "text-white"
+                      : "text-white/70 hover:text-white"
                   )}
                 >
                   {item.name}
                   {pathname === item.href && (
                     <motion.span
                       layoutId="nav-indicator"
-                      className="absolute inset-0 rounded-full bg-blue-50 -z-10"
+                      className="absolute inset-0 rounded-full bg-white/10 -z-10"
                       transition={{ type: "spring", duration: 0.5 }}
                     />
                   )}
@@ -81,13 +84,10 @@ export default function Header() {
               ))}
 
               {/* CTA */}
-              <div className="ml-4 flex items-center gap-2">
-                {/* <Button variant="ghost" asChild>
-                  <Link href="/login">Login</Link>
-                </Button> */}
+              <div className="ml-4">
                 <Button
                   asChild
-                  className="rounded-full bg-blue-600 hover:bg-blue-700 shadow"
+                  className="rounded-full bg-white text-[#001B3D] hover:bg-white/90 shadow"
                 >
                   <Link href="/contact">Get Quote</Link>
                 </Button>
@@ -98,38 +98,37 @@ export default function Header() {
             <div className="md:hidden">
               <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
+                  <Button variant="ghost" size="icon" className="text-white">
                     <Menu className="w-6 h-6" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="bg-white">
+
+                <SheetContent side="right" className="bg-[#001B3D] text-white">
                   <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
 
-                  <div className="mt-8 flex flex-col gap-4">
+                  <div className="mt-10 flex flex-col gap-4">
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
                         onClick={() => setOpen(false)}
                         className={cn(
-                          "px-4 py-3 rounded-xl text-base font-medium",
+                          "px-4 py-3 rounded-xl text-base font-medium transition",
                           pathname === item.href
-                            ? "bg-blue-50 text-blue-600"
-                            : "text-gray-700 hover:bg-gray-100"
+                            ? "bg-white/10 text-white"
+                            : "text-white/80 hover:bg-white/10"
                         )}
                       >
                         {item.name}
                       </Link>
                     ))}
 
-                    <div className="pt-4 space-y-3">
-                      {/* <Button variant="outline" className="w-full" asChild>
-                        <Link href="/login">Login</Link>
-                      </Button> */}
-                      <Button className="w-full bg-blue-600" asChild>
-                        <Link href="/contact">Get Quote</Link>
-                      </Button>
-                    </div>
+                    <Button
+                      className="mt-4 bg-white text-[#001B3D] hover:bg-white/90"
+                      asChild
+                    >
+                      <Link href="/contact">Get Quote</Link>
+                    </Button>
                   </div>
                 </SheetContent>
               </Sheet>
