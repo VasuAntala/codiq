@@ -156,52 +156,78 @@ export default function AboutPage() {
             {/* VALUES */}
             <section className="bg-white py-32">
                 <div className="mx-auto max-w-7xl px-6">
-                    <div className="mb-20 max-w-2xl">
-                        <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-blue-600">
-                            Our Principles
-                        </p>
-                        <h2 className="text-4xl font-extrabold text-slate-900">
-                            Values that shape our culture
-                        </h2>
-                    </div>
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-                    <div className="space-y-14">
-                        {[
-                            {
-                                title: "Innovation",
-                                desc: "Embracing modern technologies and smarter solutions.",
-                            },
-                            {
-                                title: "Integrity",
-                                desc: "Honest communication and long-term partnerships.",
-                            },
-                            {
-                                title: "Excellence",
-                                desc: "High standards in design, code, and delivery.",
-                            },
-                        ].map((value, i) => (
-                            <motion.div
-                                key={value.title}
-                                initial={{ opacity: 0, x: -40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                                className="flex items-start gap-10"
-                            >
-                                <div className="text-6xl font-extrabold bg-gradient-to-br from-blue-200 to-indigo-200 bg-clip-text text-transparent">
-                                    {String(i + 1).padStart(2, "0")}
-                                </div>
+                        <div>
+                            <div className="mb-14">
+                                <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-blue-600">
+                                    Our Principles
+                                </p>
+                                <h2 className="text-4xl font-extrabold text-slate-900 leading-tight">
+                                    Values that shape our culture
+                                </h2>
+                            </div>
 
-                                <div>
-                                    <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                                        {value.title}
-                                    </h3>
-                                    <p className="text-lg text-slate-600 max-w-2xl">
-                                        {value.desc}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
+                            <div className="space-y-12">
+                                {[
+                                    {
+                                        title: "Innovation",
+                                        desc: "Embracing modern technologies and smarter solutions.",
+                                    },
+                                    {
+                                        title: "Integrity",
+                                        desc: "Honest communication and long-term partnerships.",
+                                    },
+                                    {
+                                        title: "Excellence",
+                                        desc: "High standards in design, code, and delivery.",
+                                    },
+                                ].map((value, i) => (
+                                    <motion.div
+                                        key={value.title}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.1 }}
+                                        className="flex items-start gap-8"
+                                    >
+                                        <div className="text-5xl font-extrabold bg-gradient-to-br from-blue-200 to-indigo-200 bg-clip-text text-transparent min-w-[3rem]">
+                                            {String(i + 1).padStart(2, "0")}
+                                        </div>
+
+                                        <div>
+                                            <h3 className="text-xl font-bold text-slate-900 mb-2">
+                                                {value.title}
+                                            </h3>
+                                            <p className="text-lg text-slate-600">
+                                                {value.desc}
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="relative"
+                        >
+                            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src="/images/culture-values.jpg"
+                                    alt="Values that shape our culture"
+                                    className="w-full h-auto object-cover"
+                                />
+                                <div className="absolute inset-0 bg-blue-600/10 mix-blend-multiply" />
+                            </div>
+
+                            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl -z-10" />
+                            <div className="absolute -top-10 -left-10 w-40 h-40 bg-indigo-100 rounded-full blur-3xl -z-10" />
+                        </motion.div>
                     </div>
                 </div>
             </section>
