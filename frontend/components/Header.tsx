@@ -19,6 +19,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
+  { name: "Career", href: "/careers" },
   { name: "Products", href: "/products" },
   { name: "Technologies", href: "/technologies" },
 ]
@@ -50,10 +51,10 @@ export default function Header() {
             <Link href="/" className="flex items-center gap-3">
               {/* ICON LOGO */}
               <Image
-                src="/c_logo.PNG"        // icon logo
+                src="/Logo.PNG"        // icon logo
                 alt="Codiq Icon Logo"
-                width={100}
-                height={100}
+                width={180}
+                height={180}
                 className="rounded-md"
                 priority
               />

@@ -25,3 +25,26 @@ model ContactSubmission {
   status    String   @default("UNREAD") // UNREAD, READ, ARCHIVED
   createdAt DateTime @default(now())
 }
+
+model Career {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String
+  experience  Int
+  resumeLink  String
+  description String?
+  createdAt   DateTime @default(now())
+}
+
+model JobVacancy {
+  id          String   @id @default(cuid())
+  title       String
+  department  String
+  type        String // e.g., Full-time, Part-time, Contract
+  location    String // e.g., Remote, New York, NY
+  description String?  @db.Text
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

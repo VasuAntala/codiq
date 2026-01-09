@@ -15,24 +15,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Codiq Solutions | Modern Software & AI Solutions",
-  description: "Codiq Solutions offers premium web development, mobile apps, and future-ready AI solutions. Transforming ideas into digital reality.",
+  title: "Codiq Solutions",
+  description:
+    "Codiq Solutions offers premium Web development, Mobile apps, and Digital marketing.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col font-sans`}
       >
         <Header />
-        <main className="flex-grow pt-16">
-          {children}
-        </main>
+        <main className="flex-grow pt-16">{children}</main>
         <Footer />
       </body>
     </html>

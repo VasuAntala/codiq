@@ -4,7 +4,7 @@ CREATE TABLE "User" (
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "name" TEXT,
-    "role" TEXT NOT NULL DEFAULT 'ADMIN',
+    "role" TEXT NOT NULL DEFAULT 'USER',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -22,6 +22,20 @@ CREATE TABLE "ContactSubmission" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "ContactSubmission_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "careers" (
+    "id" TEXT NOT NULL,
+    "Name" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "Phone" TEXT NOT NULL,
+    "Experience" INTEGER NOT NULL,
+    "ResumeLink" TEXT NOT NULL,
+    "Description" TEXT,
+    "AppliedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "careers_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex

@@ -157,10 +157,10 @@ export default function AboutPage() {
             {/* VALUES */}
             <section className="bg-white py-32">
                 <div className="mx-auto max-w-7xl px-6">
-                    <div className="grid lg:grid-cols-[1.5fr_1fr] gap-3 items-start">
+                    <div className="grid lg:grid-cols-[1.5fr_1fr] gap-8 items-start">
                         {/* Left: principles timeline */}
                         <div className="flex flex-col justify-center">
-                            <div className="mb-20 max-w-2xl">
+                            <div className="mb-16 max-w-2xl">
                                 <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-blue-600">
                                     Our Principles
                                 </p>
@@ -169,7 +169,7 @@ export default function AboutPage() {
                                 </h2>
                             </div>
 
-                            <div className="relative space-y-12 pl-12">
+                            <div className="space-y-12">
                                 {[
                                     {
                                         title: "Innovation",
@@ -186,16 +186,13 @@ export default function AboutPage() {
                                 ].map((value, i) => (
                                     <motion.div
                                         key={value.title}
-                                        initial={{ opacity: 0, x: -40 }}
+                                        initial={{ opacity: 0, x: -20 }}
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: i * 0.1 }}
-                                        className="relative flex items-center gap-6 pl-6"
+                                        className="flex items-center gap-6"
                                     >
-                                        {/* Timeline dot */}
-                                        <div className="absolute -left-[6px] top-8 h-3 w-3 rounded-full bg-blue-500 shadow-[0_0_0_6px_rgba(59,130,246,0.15)]" />
-
-                                        <div className="text-6xl font-extrabold bg-linear-to-br from-blue-200 to-indigo-200 bg-clip-text text-transparent">
+                                        <div className="text-5xl font-extrabold bg-linear-to-br from-blue-200 to-indigo-200 bg-clip-text text-transparent min-w-12">
                                             {String(i + 1).padStart(2, "0")}
                                         </div>
 
