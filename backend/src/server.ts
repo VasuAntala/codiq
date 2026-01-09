@@ -22,7 +22,6 @@ app.use('/api/auth', authRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/career', careerRoutes);
 app.use('/api/jobs', jobRoutes);
-app.use('/api/jobs', jobRoutes);
 
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok' });
