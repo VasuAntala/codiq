@@ -30,9 +30,9 @@ AI tools can now:
     category: "Development",
     image: "/blog/next-js.png",
     content: `
-Next.js provides powerful tools like App Router, Server Components, and ISR.
+    Next.js provides powerful tools like App Router, Server Components, and ISR.
 
-### Best Practices
+Best Practices :
 - Optimize images
 - Use caching
 - Reduce JS bundle size
