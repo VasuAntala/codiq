@@ -10,8 +10,36 @@ import {
   ArrowUpRight,
   Clock,
 } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export default function ProductsPage() {
+  const texts = ["Full Stack Development", "Graphics Design", "Digital Marketing"]
+  const [currentTextIndex, setCurrentTextIndex] = useState(0)
+  const [currentText, setCurrentText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  useEffect(() => {
+    const currentFullText = texts[currentTextIndex]
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        if (currentText.length < currentFullText.length) {
+          setCurrentText(currentFullText.slice(0, currentText.length + 1))
+        } else {
+          setTimeout(() => setIsDeleting(true), 2000)
+        }
+      } else {
+        if (currentText.length > 0) {
+          setCurrentText(currentFullText.slice(0, currentText.length - 1))
+        } else {
+          setIsDeleting(false)
+          setCurrentTextIndex((prev) => (prev + 1) % texts.length)
+        }
+      }
+    }, isDeleting ? 50 : 100)
+
+    return () => clearTimeout(timeout)
+  }, [currentText, currentTextIndex, isDeleting, texts])
+
   return (
     <>
       <PageHeader
@@ -117,7 +145,7 @@ export default function ProductsPage() {
       </section>
 
       {/* FUTURE ROADMAP */}
-      <section className="bg-gradient-to-b from-blue-50 to-white py-32">
+      <section className="bg-linear-to-b from-blue-50 to-white py-32">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-20 max-w-3xl">
             <div className="flex items-center gap-3 mb-4">

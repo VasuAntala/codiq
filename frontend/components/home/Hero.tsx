@@ -4,17 +4,63 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { ArrowRight, ChevronRight } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export default function Hero() {
+  const texts = ["Full Stack Development", "Graphics Design", "Digital Marketing"]
+  const [currentTextIndex, setCurrentTextIndex] = useState(0)
+  const [currentText, setCurrentText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  useEffect(() => {
+    const currentFullText = texts[currentTextIndex]
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        if (currentText.length < currentFullText.length) {
+          setCurrentText(currentFullText.slice(0, currentText.length + 1))
+        } else {
+          setTimeout(() => setIsDeleting(true), 2000)
+        }
+      } else {
+        if (currentText.length > 0) {
+          setCurrentText(currentFullText.slice(0, currentText.length - 1))
+        } else {
+          setIsDeleting(false)
+          setCurrentTextIndex((prev) => (prev + 1) % texts.length)
+        }
+      }
+    }, isDeleting ? 50 : 100)
+
+    return () => clearTimeout(timeout)
+  }, [currentText, currentTextIndex, isDeleting, texts])
+
   return (
     <section className="relative overflow-hidden bg-white pt-32 pb-36">
       {/* Subtle Background Accents */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[420px] w-[900px] rounded-full bg-gradient-to-r from-blue-100 via-indigo-100 to-violet-100 blur-3xl opacity-60" />
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[420px] w-[900px] rounded-full bg-linear-to-r from-blue-100 via-indigo-100 to-violet-100 blur-3xl opacity-60" />
         <div className="absolute bottom-0 right-0 h-[300px] w-[600px] bg-blue-100/40 blur-3xl" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 text-center">
+      {/* Animated Blur Circle Behind Text */}
+      <motion.div
+        className="absolute left-1/2 top-[50%] -translate-x-1/2 -translate-y-1/2 z-0"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+          x: [0, 15, 0],
+          y: [0, -8, 0],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <div className="h-[300px] w-[300px] rounded-full blur-3xl" style={{ backgroundColor: "#1D4ED8" }} />
+      </motion.div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -29,29 +75,40 @@ export default function Hero() {
         </motion.div>
 
         {/* Heading */}
+        {/* Typewriter Text */}
+        <div className="relative inline-block">
+            <motion.h1
+              className="mx-auto max-w-5xl text-5xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-6xl lg:text-6xl"
+            >
+              <span className="bg-linear-to-r from-[#000B58] via-[#003161] to-indigo-800 bg-clip-text text-transparent">
+              {currentText}
+              <span className="animate-pulse">|</span>
+            </span>
+            </motion.h1>
+          </div>
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
           className="mx-auto max-w-5xl text-5xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-6xl lg:text-7xl"
         >
-          Engineering Digital
-          <br />
-          <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
             Products That Scale
           </span>
         </motion.h1>
 
         {/* Subtitle */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="mx-auto mt-6 max-w-2xl text-lg text-slate-600"
+          className="mx-auto mt-6 max-w-2xl"
         >
-          We build high-performance web platforms, mobile applications, and
-          AI-powered systems for startups and enterprises worldwide.
-        </motion.p>
+          <p className="text-lg text-slate-600 mb-4">
+            We build high-performance web platforms, mobile applications, and
+            AI-powered systems for startups and enterprises worldwide.
+          </p>
+        </motion.div>
 
         {/* CTA */}
         <motion.div
@@ -63,9 +120,9 @@ export default function Hero() {
           <Button
             size="lg"
             className="h-14 rounded-full px-8 text-base 
-             bg-[var(--primary)] 
+             bg-(--primary) 
              text-white 
-             hover:bg-[var(--primary-hover)]
+             hover:bg-(--primary-hover)
              shadow-lg shadow-blue-600/20"
             asChild
           >
@@ -78,9 +135,9 @@ export default function Hero() {
             variant="outline"
             size="lg"
             className="h-14 rounded-full px-8 text-base
-             border-[var(--primary)]
-             text-[var(--primary)]
-             hover:bg-[var(--primary-light)]"
+             border-(--primary)
+             text-(--primary)
+             hover:bg-(--primary-light)"
             asChild
           >
             <Link href="/services">Our Services</Link>

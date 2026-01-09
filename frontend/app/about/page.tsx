@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import {
     Code2,
     Target,
@@ -33,13 +34,13 @@ export default function AboutPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <p className="text-sm font-semibold tracking-widest uppercase mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                            <p className="text-sm font-semibold tracking-widest uppercase mb-4 bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                                 Our Identity
                             </p>
 
                             <h2 className="text-5xl font-extrabold leading-tight mb-8 text-slate-900">
                                 We build software <br />
-                                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                                <span className="bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                                     that scales with ambition.
                                 </span>
                             </h2>
@@ -72,7 +73,7 @@ export default function AboutPage() {
                                     className="flex items-center gap-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg transition"
                                 >
                                     <div
-                                        className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${item.color} text-white`}
+                                        className={`flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br ${item.color} text-white`}
                                     >
                                         <item.icon className="h-6 w-6" />
                                     </div>
@@ -87,7 +88,7 @@ export default function AboutPage() {
             </section>
 
             {/* MISSION & VISION */}
-            <section className="bg-gradient-to-b from-blue-50 to-white py-28">
+            <section className="bg-linear-to-b from-blue-50 to-white py-28">
                 <div className="mx-auto max-w-7xl px-6">
                     <div className="grid md:grid-cols-2 gap-16">
 
@@ -156,58 +157,86 @@ export default function AboutPage() {
             {/* VALUES */}
             <section className="bg-white py-32">
                 <div className="mx-auto max-w-7xl px-6">
-                    <div className="mb-20 max-w-2xl">
-                        <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-blue-600">
-                            Our Principles
-                        </p>
-                        <h2 className="text-4xl font-extrabold text-slate-900">
-                            Values that shape our culture
-                        </h2>
-                    </div>
+                    <div className="grid lg:grid-cols-[1.5fr_1fr] gap-3 items-start">
+                        {/* Left: principles timeline */}
+                        <div className="flex flex-col justify-center">
+                            <div className="mb-20 max-w-2xl">
+                                <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-blue-600">
+                                    Our Principles
+                                </p>
+                                <h2 className="text-4xl font-extrabold text-slate-900">
+                                    Values that shape our culture
+                                </h2>
+                            </div>
 
-                    <div className="space-y-14">
-                        {[
-                            {
-                                title: "Innovation",
-                                desc: "Embracing modern technologies and smarter solutions.",
-                            },
-                            {
-                                title: "Integrity",
-                                desc: "Honest communication and long-term partnerships.",
-                            },
-                            {
-                                title: "Excellence",
-                                desc: "High standards in design, code, and delivery.",
-                            },
-                        ].map((value, i) => (
-                            <motion.div
-                                key={value.title}
-                                initial={{ opacity: 0, x: -40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                                className="flex items-start gap-10"
-                            >
-                                <div className="text-6xl font-extrabold bg-gradient-to-br from-blue-200 to-indigo-200 bg-clip-text text-transparent">
-                                    {String(i + 1).padStart(2, "0")}
-                                </div>
+                            <div className="relative space-y-12 pl-12">
+                                {[
+                                    {
+                                        title: "Innovation",
+                                        desc: "Embracing modern technologies and smarter solutions.",
+                                    },
+                                    {
+                                        title: "Integrity",
+                                        desc: "Honest communication and long-term partnerships.",
+                                    },
+                                    {
+                                        title: "Excellence",
+                                        desc: "High standards in design, code, and delivery.",
+                                    },
+                                ].map((value, i) => (
+                                    <motion.div
+                                        key={value.title}
+                                        initial={{ opacity: 0, x: -40 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.1 }}
+                                        className="relative flex items-center gap-6 pl-6"
+                                    >
+                                        {/* Timeline dot */}
+                                        <div className="absolute -left-[6px] top-8 h-3 w-3 rounded-full bg-blue-500 shadow-[0_0_0_6px_rgba(59,130,246,0.15)]" />
 
-                                <div>
-                                    <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                                        {value.title}
-                                    </h3>
-                                    <p className="text-lg text-slate-600 max-w-2xl">
-                                        {value.desc}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
+                                        <div className="text-6xl font-extrabold bg-linear-to-br from-blue-200 to-indigo-200 bg-clip-text text-transparent">
+                                            {String(i + 1).padStart(2, "0")}
+                                        </div>
+
+                                        <div>
+                                            <h3 className="text-2xl font-bold text-slate-900 mb-1">
+                                                {value.title}
+                                            </h3>
+                                            <p className="text-lg text-slate-600 max-w-2xl">
+                                                {value.desc}
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Right: principal image */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="relative flex items-center justify-center"
+                        >
+                            <div className="relative w-full max-w-md h-[460px] md:h-[520px] lg:h-[500px] flex items-center justify-center rounded-2xl overflow-hidden shadow-[0_10px_50px_rgba(15,23,42,0.18)] transition-transform duration-300 ease-out hover:scale-[1.02] hover:shadow-[0_20px_30px_rgba(20,10,44,0.20)]">
+                                <Image
+                                    src="/ITphoto.jpg"
+                                    alt="Principal at Codiq Solutions"
+                                    width={640}
+                                    height={500}
+                                    className="h-full w-auto object-cover overflow-hidden"
+                                    priority={false}
+                                />
+                                <div className="pointer-events-none absolute inset-0 bg-black/0 hover:bg-black/5 transition-colors duration-300" />
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
 
             {/* WHY CODIQ */}
-            <section className="bg-gradient-to-r from-blue-50 to-indigo-50 py-28">
+            <section className="bg-linear-to-r from-blue-50 to-indigo-50 py-28">
                 <div className="mx-auto max-w-7xl px-6">
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
                         <h2 className="text-4xl font-extrabold text-slate-900 max-w-xl">
