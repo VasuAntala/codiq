@@ -77,20 +77,20 @@ export default function CareersPage() {
         if (!validate()) return
 
         try {
-            // Use relative API route so it works with the Next.js backend / proxy
+            // Use FormData for file upload
+            const formData = new FormData();
+            formData.append("name", form.name);
+            formData.append("email", form.email);
+            formData.append("phone", form.phone);
+            formData.append("experience", form.experience);
+            formData.append("description", form.coverLetter);
+            if (form.resume) {
+                formData.append("resume", form.resume);
+            }
+
             const res = await fetch("/api/career", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    name: form.name,
-                    email: form.email,
-                    phone: form.phone,
-                    experience: form.experience,
-                    resumeLink: "https://example.com/resume.pdf", // TODO: Implement file upload
-                    description: form.coverLetter,
-                }),
+                body: formData,
             });
 
             if (res.ok) {

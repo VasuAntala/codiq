@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const path_1 = __importDefault(require("path"));
+const fs_1 = __importDefault(require("fs"));
 const auth_1 = __importDefault(require("./routes/auth"));
 const contact_1 = __importDefault(require("./routes/contact"));
 const career_1 = __importDefault(require("./routes/career"));
@@ -18,11 +20,17 @@ app.use((0, cors_1.default)({
     credentials: true
 }));
 app.use(express_1.default.json());
+// Ensure uploads directory exists
+const uploadsDir = path_1.default.join(__dirname, '../uploads');
+if (!fs_1.default.existsSync(uploadsDir)) {
+    fs_1.default.mkdirSync(uploadsDir, { recursive: true });
+}
+// Serve static files from uploads directory
+app.use('/uploads', express_1.default.static(uploadsDir));
 // Routes
 app.use('/api/auth', auth_1.default);
 app.use('/api/contact', contact_1.default);
 app.use('/api/career', career_1.default);
-app.use('/api/jobs', jobs_1.default);
 app.use('/api/jobs', jobs_1.default);
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok' });
