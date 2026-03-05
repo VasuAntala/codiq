@@ -7,7 +7,7 @@ import { ArrowRight, ChevronRight } from "lucide-react"
 import { useState, useEffect } from "react"
 
 export default function Hero() {
-  const texts = ["Full Stack Development", "Graphics Design", "Digital Marketing"]
+  const texts = ["Full Stack Development", "Graphics Design", "Digital Marketing", "AI Solutions"]
   const [currentTextIndex, setCurrentTextIndex] = useState(0)
   const [currentText, setCurrentText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
@@ -29,101 +29,113 @@ export default function Hero() {
           setCurrentTextIndex((prev) => (prev + 1) % texts.length)
         }
       }
-    }, isDeleting ? 50 : 100)
+    }, isDeleting ? 30 : 70)
 
     return () => clearTimeout(timeout)
   }, [currentText, currentTextIndex, isDeleting, texts])
 
   return (
-    <section className="relative overflow-hidden bg-white pt-32 pb-36">
-      {/* Subtle Background Accents */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[420px] w-[900px] rounded-full bg-linear-to-r from-blue-100 via-indigo-100 to-violet-100 blur-3xl opacity-60" />
-        <div className="absolute bottom-0 right-0 h-[300px] w-[600px] bg-blue-100/40 blur-3xl" />
+    <section className="relative overflow-hidden bg-white pt-24 pb-24 md:pt-32 md:pb-40 px-4">
+      {/* Premium Background Layering */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        {/* Animated Primary Blobs */}
+        <motion.div
+          animate={{
+            x: [0, 80, -40, 0],
+            y: [0, -50, 40, 0],
+            scale: [1, 1.1, 0.9, 1]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute top-[-10%] left-[-10%] h-[600px] w-[600px] rounded-full bg-blue-400/10 blur-[130px]"
+        />
+        <motion.div
+          animate={{
+            x: [0, -60, 50, 0],
+            y: [0, 80, -60, 0],
+            scale: [1, 1.2, 0.8, 1]
+          }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-[-10%] right-[-10%] h-[700px] w-[700px] rounded-full bg-indigo-400/10 blur-[140px]"
+        />
+        <motion.div
+          animate={{
+            x: [0, 40, -80, 0],
+            y: [0, 60, 40, 0]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute top-[20%] left-[30%] h-[500px] w-[500px] rounded-full bg-violet-400/10 blur-[120px]"
+        />
+
+        {/* Subtle Mesh Grid */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
       </div>
 
-      {/* Animated Blur Circle Behind Text */}
-      <motion.div
-        className="absolute left-1/2 top-[50%] -translate-x-1/2 -translate-y-1/2 z-0"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-          x: [0, 15, 0],
-          y: [0, -8, 0],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      >
-        <div className="h-[300px] w-[300px] rounded-full blur-3xl" style={{ backgroundColor: "#1D4ED8" }} />
-      </motion.div>
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 text-center">
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
         {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
           className="mb-8 flex justify-center"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-5 py-2 text-sm font-medium text-blue-700">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-50/50 backdrop-blur-sm px-4 py-1.5 text-xs sm:text-sm font-medium text-blue-700 shadow-sm transition-all hover:bg-blue-100/50">
+            <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
             Trusted IT & Software Solutions
             <ChevronRight className="h-4 w-4 opacity-60" />
           </div>
         </motion.div>
 
-        {/* Heading */}
-        {/* Typewriter Text */}
-        <div className="relative inline-block">
-            <motion.h1
-              className="mx-auto max-w-5xl text-5xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-6xl lg:text-6xl"
-            >
-              <span className="bg-linear-to-r from-[#000B58] via-[#003161] to-indigo-800 bg-clip-text text-transparent">
-              {currentText}
-              <span className="animate-pulse">|</span>
-            </span>
-            </motion.h1>
-          </div>
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.05 }}
-          className="mx-auto max-w-5xl text-5xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-6xl lg:text-7xl"
-        >
-          <span className="bg-linear-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
+        {/* Dynamic Heading */}
+        <div className="min-h-[140px] sm:min-h-[160px] md:min-h-[180px]">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-2"
+          >
+            <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl">
+              Next-Gen <br className="sm:hidden" />
+              <span className="bg-linear-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent px-2">
+                {currentText}
+              </span>
+              <span className="inline-block w-[2px] h-[0.8em] bg-blue-600 ml-1 animate-caret" />
+            </h1>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl"
+          >
             Products That Scale
-          </span>
-        </motion.h1>
+          </motion.h1>
+        </div>
 
         {/* Subtitle */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="mx-auto mt-6 max-w-2xl"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mx-auto mt-8 max-w-xl text-base sm:text-lg text-slate-600 leading-relaxed px-2"
         >
-          <p className="text-lg text-slate-600 mb-4">
-            We build high-performance web platforms, mobile applications, and
-            AI-powered systems for startups and enterprises worldwide.
-          </p>
-        </motion.div>
+          We build high-performance web platforms, mobile applications, and
+          AI-powered systems for startups and enterprises worldwide.
+        </motion.p>
 
-        {/* CTA */}
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="mt-10 flex flex-wrap justify-center gap-4"
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
         >
           <Button
             size="lg"
-            className="h-14 rounded-full px-8 text-base 
-             bg-(--primary) 
-             text-white 
-             hover:bg-(--primary-hover)
-             shadow-lg shadow-blue-600/20"
+            className="w-full sm:w-auto h-14 rounded-2xl px-10 text-base font-semibold transition-all duration-300
+             bg-blue-600 text-white hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98]
+             shadow-xl shadow-blue-600/25"
             asChild
           >
             <Link href="/contact">
@@ -134,10 +146,8 @@ export default function Hero() {
           <Button
             variant="outline"
             size="lg"
-            className="h-14 rounded-full px-8 text-base
-             border-(--primary)
-             text-(--primary)
-             hover:bg-(--primary-light)"
+            className="w-full sm:w-auto h-14 rounded-2xl px-10 text-base font-semibold transition-all duration-300
+             border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 hover:scale-[1.02] active:scale-[0.98]"
             asChild
           >
             <Link href="/services">Our Services</Link>

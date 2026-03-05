@@ -13,12 +13,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors({
-    origin: 'http://localhost:3000', // Allow frontend
-    credentials: true
-}));
-app.use(express.json());
-
 // Ensure uploads directory exists
 const uploadsDir = path.join(__dirname, '../uploads');
 if (!fs.existsSync(uploadsDir)) {
@@ -27,6 +21,13 @@ if (!fs.existsSync(uploadsDir)) {
 
 // Serve static files from uploads directory
 app.use('/uploads', express.static(uploadsDir));
+
+app.use(cors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    credentials: true
+}));
+app.use(express.json());
+
 
 // Routes
 app.use('/api/auth', authRoutes);

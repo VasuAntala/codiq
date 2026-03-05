@@ -1,9 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
-import { jwtVerify } from 'jose';
 
 const secret = new TextEncoder().encode(
-    process.env.JWT_SECRET || 'default_secret_key_change_me'
+    process.env.JWT_SECRET
 );
+
+if (!process.env.JWT_SECRET) {
+    throw new Error('JWT_SECRET is not defined in environment variables');
+}
 
 export async function authenticateToken(req: Request, res: Response, next: NextFunction) {
     const authHeader = req.headers['authorization'];
@@ -15,6 +18,7 @@ export async function authenticateToken(req: Request, res: Response, next: NextF
     }
 
     try {
+        const { jwtVerify } = await import('jose');
         const { payload } = await jwtVerify(token, secret);
         (req as any).user = payload;
         next();

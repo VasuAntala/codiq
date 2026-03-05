@@ -3,7 +3,10 @@ import type { NextRequest } from 'next/server'
 import { jwtVerify } from 'jose'
 
 export async function middleware(request: NextRequest) {
-    if (request.nextUrl.pathname.startsWith('/admin')) {
+    const isProtectedPath = request.nextUrl.pathname.startsWith('/admin') ||
+        request.nextUrl.pathname.startsWith('/dashboard')
+
+    if (isProtectedPath) {
         const token = request.cookies.get('token')?.value
 
         if (!token) {
@@ -11,9 +14,12 @@ export async function middleware(request: NextRequest) {
         }
 
         try {
-            const secret = new TextEncoder().encode(
-                process.env.JWT_SECRET || 'default_secret_key_change_me'
-            )
+            const secretStr = process.env.JWT_SECRET
+            if (!secretStr) {
+                console.error('JWT_SECRET is not defined')
+                return NextResponse.redirect(new URL('/login', request.url))
+            }
+            const secret = new TextEncoder().encode(secretStr)
             await jwtVerify(token, secret)
             return NextResponse.next()
         } catch (err) {
@@ -25,5 +31,6 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: '/admin/:path*',
+    matcher: ['/admin/:path*', '/dashboard/:path*'],
 }
+

@@ -57,59 +57,57 @@ const features: Feature[] = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative bg-white py-32">
-      {/* Soft background accent */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-0 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-100 via-indigo-100 to-violet-100 blur-3xl opacity-60" />
+    <section className="relative overflow-hidden bg-white py-24 md:py-32">
+      {/* Background Decor */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 overflow-hidden">
+        <div className="absolute top-[-10%] right-[-5%] h-[500px] w-[500px] rounded-full bg-blue-50 blur-[120px]" />
+        <div className="absolute bottom-[10%] left-[-5%] h-[400px] w-[400px] rounded-full bg-indigo-50/50 blur-[100px]" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Header */}
-        <div className="mx-auto mb-20 max-w-3xl text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
+        <div className="mx-auto mb-16 md:mb-20 max-w-3xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl"
           >
-            Why Choose Us
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="mt-5 text-lg text-slate-600"
-          >
-            We combine technology, strategy, and creativity to deliver reliable
-            digital solutions that create real business value.
-          </motion.p>
+            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full">
+              The Codiq Edge
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+              Why Choose Us
+            </h2>
+            <p className="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed">
+              We combine technology, strategy, and creativity to deliver reliable
+              digital solutions that create real business value.
+            </p>
+          </motion.div>
         </div>
 
         {/* Features Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((item, index) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              whileHover={{ y: -8 }}
-              className="group rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:border-blue-300 hover:shadow-xl"
+              transition={{ delay: index * 0.05 }}
+              whileHover={{ y: -10 }}
+              className="group relative rounded-3xl border border-slate-100 bg-white p-8 md:p-10 transition-all duration-300 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5"
             >
               {/* Icon */}
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-all group-hover:bg-blue-600 group-hover:text-white">
+              <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:rotate-3 group-hover:scale-110">
                 <item.icon className="h-6 w-6" />
               </div>
 
               {/* Content */}
-              <h3 className="mb-3 text-xl font-semibold text-slate-900">
+              <h3 className="mb-4 text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                 {item.title}
               </h3>
 
-              <p className="leading-relaxed text-slate-600">
+              <p className="leading-relaxed text-slate-600 text-sm lg:text-base">
                 {item.description}
               </p>
             </motion.div>
@@ -117,5 +115,6 @@ export default function WhyChooseUs() {
         </div>
       </div>
     </section>
+
   )
 }

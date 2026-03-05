@@ -60,91 +60,76 @@ const services = [
 
 export default function Services() {
     return (
-        <section className="relative bg-white py-32">
-            {/* Soft background accents */}
-            <div className="absolute inset-0 -z-10">
-            <div className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-linear-to-r from-blue-100 via-indigo-100 to-violet-100 blur-3xl opacity-60" />
-            </div>
+        <section className="relative overflow-hidden bg-white py-24 md:py-32">
+            {/* Background elements */}
+            <div className="absolute inset-0 -z-10 bg-slate-50/50" />
+            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 h-96 w-96 rounded-full bg-blue-50/50 blur-3xl" />
 
-            <div className="mx-auto max-w-7xl px-6">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 {/* Header */}
-                <div className="mx-auto mb-20 max-w-3xl text-center">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 16 }}
+                <div className="mx-auto mb-16 md:mb-20 max-w-3xl text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl"
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.6 }}
                     >
-                        Solutions Designed to Scale
-                    </motion.h2>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="mt-5 text-lg text-slate-600"
-                    >
-                        We help businesses build future-ready digital products through
-                        cutting-edge technology and thoughtful engineering.
-                    </motion.p>
+                        <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full">
+                            Our Expertise
+                        </span>
+                        <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+                            Solutions Designed to Scale
+                        </h2>
+                        <p className="mt-6 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                            We help businesses build future-ready digital products through
+                            cutting-edge technology and thoughtful engineering.
+                        </p>
+                    </motion.div>
                 </div>
 
                 {/* Grid */}
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-2">
                     {services.map((service, i) => (
                         <motion.div
                             key={service.title}
-                            initial={{ opacity: 0, y: 24 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.08 }}
-                            whileHover={{ y: -8 }}
-                            className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:border-slate-300  hover:shadow-[0_1px_4px_rgba(0,0,0,0.16)]"
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.5, delay: i * 0.1 }}
+                            whileHover={{ y: -10 }}
+                            className="group relative flex flex-col items-start rounded-3xl border border-slate-200 bg-white p-8 md:p-10 transition-all duration-300 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/10"
                         >
-                            {/* Diagonal accent slice */}
+                            {/* Icon Wrapper */}
                             <div
                                 className={cn(
-            "pointer-events-none absolute -right-24 -top-24 h-48 w-48 rotate-45 opacity-0 transition-opacity duration-300 group-hover:opacity-100",
-            "bg-linear-to-br",
-            service.accent
-          )}
-                            />
-
-                            {/* Content */}
-                            <div className="relative z-10">
-                                {/* Icon */}
-                                {/* Icon */}
-                                <div
-                                    className={cn(
-                                        "mb-6 flex h-14 w-14 items-center justify-center rounded-xl",
-                                        "bg-slate-100 text-slate-900",
-                                        "transition-all duration-300",
-            "group-hover:scale-110 group-hover:rotate-6",
-            "group-hover:bg-linear-to-br",
-            service.accent
-          )}
-                                >
-                                    <service.icon className="h-6 w-6 transition-colors duration-300 group-hover:text-white" />
-                                </div>
-
-                                <h3 className="mb-3 text-2xl font-bold text-slate-900">
-                                    {service.title}
-                                </h3>
-
-                                <p className="text-slate-600 leading-relaxed">
-                                    {service.description}
-                                </p>
-
-                                {/* CTA */}
-                                <Link
-                                    href="/services"
-                                    className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition-all group-hover:text-slate-900 cursor-pointer"
-                                >
-                                    Explore Services
-                                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                                </Link>
+                                    "mb-8 flex h-16 w-16 items-center justify-center rounded-2xl",
+                                    "bg-slate-50 text-slate-900",
+                                    "transition-all duration-500",
+                                    "group-hover:scale-110 group-hover:rotate-3 group-hover:bg-blue-600 group-hover:text-white"
+                                )}
+                            >
+                                <service.icon className="h-7 w-7 transition-all" />
                             </div>
+
+                            <h3 className="mb-4 text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                                {service.title}
+                            </h3>
+
+                            <p className="text-slate-600 leading-relaxed mb-8 flex-grow">
+                                {service.description}
+                            </p>
+
+                            {/* Decorative bar on hover */}
+                            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-blue-600 to-indigo-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-3xl" />
+
+                            {/* CTA Link */}
+                            <Link
+                                href="/services"
+                                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition-all hover:gap-3"
+                            >
+                                Explore Service
+                                <ArrowUpRight className="h-4 w-4" />
+                            </Link>
                         </motion.div>
                     ))}
                 </div>

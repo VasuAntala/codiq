@@ -1,13 +1,16 @@
 import { Router } from 'express';
-import { SignJWT } from 'jose';
+import bcrypt from 'bcryptjs';
 import prisma from '../db';
 
 const router = Router();
 
-
-const secret = new TextEncoder().encode(
-    process.env.JWT_SECRET || 'default_secret_key_change_me'
-);
+const getSecret = () => {
+    const secret = process.env.JWT_SECRET;
+    if (!secret) {
+        throw new Error('JWT_SECRET is not defined in environment variables');
+    }
+    return new TextEncoder().encode(secret);
+};
 
 // Register Endpoint
 router.post('/register', async (req, res) => {
@@ -20,19 +23,23 @@ router.post('/register', async (req, res) => {
             return;
         }
 
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
         // Create new user (role defaults to "USER" based on schema)
         const user = await prisma.user.create({
             data: {
                 email,
-                password, // In production, hash this!
+                password: hashedPassword,
                 name
             }
         });
 
+        const { SignJWT } = await import('jose');
         const token = await new SignJWT({ email: user.email, role: user.role })
             .setProtectedHeader({ alg: 'HS256' })
             .setExpirationTime('2h')
-            .sign(secret);
+            .sign(getSecret());
 
         res.json({ success: true, token, role: user.role });
 
@@ -48,13 +55,18 @@ router.post('/login', async (req, res) => {
 
         const user = await prisma.user.findUnique({ where: { email } });
         let isValid = false;
+        let role = 'USER';
 
         if (user) {
-            // In production, use bcrypt.compare
-            isValid = password === user.password;
-        } else if (email === 'admin@codiq.com' && password === 'admin123') {
-            // Hardcoded fallback admin (if not in DB yet)
+            isValid = await bcrypt.compare(password, user.password);
+            role = user.role;
+        } else if (
+            email === (process.env.ADMIN_EMAIL || 'admin@codiq.com') &&
+            password === (process.env.ADMIN_PASSWORD || 'admin123')
+        ) {
+            // Handled as static admin
             isValid = true;
+            role = 'ADMIN';
         }
 
         if (!isValid) {
@@ -62,12 +74,11 @@ router.post('/login', async (req, res) => {
             return;
         }
 
-        // Payload now includes role
-        const role = user?.role || 'ADMIN';
+        const { SignJWT } = await import('jose');
         const token = await new SignJWT({ email, role })
             .setProtectedHeader({ alg: 'HS256' })
             .setExpirationTime('2h')
-            .sign(secret);
+            .sign(getSecret());
 
         // Return token to client so they can set cookie
         res.json({ success: true, token, role });

@@ -5,38 +5,44 @@ import { BrainCircuit, ShieldCheck, Layers3, Zap } from "lucide-react"
 
 export function Approach() {
     return (
-        <section className="bg-blue-50 py-32">
-            <div className="mx-auto max-w-7xl px-6">
-                <div className="grid gap-16 lg:grid-cols-2">
+        <section className="relative overflow-hidden bg-slate-50 py-24 md:py-32">
+            {/* Background Accents */}
+            <div className="absolute top-0 left-0 w-full h-full -z-10">
+                <div className="absolute top-1/4 left-0 h-64 w-64 rounded-full bg-blue-100/50 blur-3xl" />
+                <div className="absolute bottom-1/4 right-0 h-96 w-96 rounded-full bg-indigo-100/30 blur-3xl shadow-2xl" />
+            </div>
+
+            <div className="mx-auto max-max-w-7xl px-4 sm:px-6">
+                <div className="grid gap-12 lg:gap-16 lg:grid-cols-2 lg:items-center">
                     {/* Left content */}
-                    <div>
-                        <motion.p
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                    <div className="text-center lg:text-left">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-600"
+                            className="mb-6 inline-block rounded-full bg-blue-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-700"
                         >
                             Our Approach
-                        </motion.p>
+                        </motion.div>
 
                         <motion.h2
-                            initial={{ opacity: 0, y: 16 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900"
+                            className="mb-6 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
                         >
                             We solve real problems -
-                            <br />
+                            <br className="hidden sm:block" />
                             not just ship features.
                         </motion.h2>
 
                         <motion.p
-                            initial={{ opacity: 0, y: 16 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="max-w-xl text-lg leading-relaxed text-slate-600"
+                            className="mx-auto lg:mx-0 max-w-xl text-base sm:text-lg leading-relaxed text-slate-600 mb-8"
                         >
                             Technology should simplify complexity, not add to it.
                             Our process is built around clarity, performance, and
@@ -46,7 +52,7 @@ export function Approach() {
                     </div>
 
                     {/* Principles */}
-                    <div className="grid gap-6 sm:grid-cols-2">
+                    <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 px-2 sm:px-0">
                         <Principle
                             icon={BrainCircuit}
                             title="Think Before We Build"
@@ -75,6 +81,7 @@ export function Approach() {
                 </div>
             </div>
         </section>
+
     )
 }
 
