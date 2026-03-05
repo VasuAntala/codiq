@@ -14,15 +14,42 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const db_1 = __importDefault(require("../db"));
+const multer_1 = __importDefault(require("multer"));
+const path_1 = __importDefault(require("path"));
 const router = (0, express_1.Router)();
+// Multer configuration
+const storage = multer_1.default.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "uploads/");
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+        cb(null, file.fieldname + "-" + uniqueSuffix + path_1.default.extname(file.originalname));
+    },
+});
+const upload = (0, multer_1.default)({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        const allowedTypes = [".pdf", ".doc", ".docx"];
+        const ext = path_1.default.extname(file.originalname).toLowerCase();
+        if (allowedTypes.includes(ext)) {
+            cb(null, true);
+        }
+        else {
+            cb(new Error("Only .pdf, .doc and .docx files are allowed"));
+        }
+    },
+    limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+});
 // Public: Submit a career application
-router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post("/", upload.single("resume"), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name, email, phone, experience, resumeLink, description } = req.body;
-        if (!name || !email || !phone || !experience || !resumeLink) {
-            res.status(400).json({ error: "Missing required fields" });
+        const { name, email, phone, experience, description } = req.body;
+        if (!name || !email || !phone || !experience || !req.file) {
+            res.status(400).json({ error: "Missing required fields or resume file" });
             return;
         }
+        const resumeLink = `/uploads/${req.file.filename}`;
         const application = yield db_1.default.career.create({
             data: {
                 name,
@@ -37,7 +64,7 @@ router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
     catch (error) {
         console.error("Career application error:", error);
-        res.status(500).json({ error: "Internal Server Error" });
+        res.status(500).json({ error: error.message || "Internal Server Error" });
     }
 }));
 // Protected: Get all applications (Admin only)

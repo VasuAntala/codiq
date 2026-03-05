@@ -19,6 +19,26 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Public: Get a single job vacancy
+router.get('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const job = await prisma.jobVacancy.findUnique({
+            where: { id }
+        });
+
+        if (!job) {
+            res.status(404).json({ error: 'Job not found' });
+            return;
+        }
+
+        res.json(job);
+    } catch (error) {
+        console.error('Fetch job error:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 // Protected: Create a new job vacancy (Admin only)
 router.post('/', authenticateToken, async (req, res) => {
     try {

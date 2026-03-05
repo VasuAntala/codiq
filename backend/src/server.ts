@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
+import fs from 'fs';
 import authRoutes from './routes/auth';
 import contactRoutes from './routes/contact';
 import careerRoutes from './routes/career';
@@ -17,11 +19,19 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Ensure uploads directory exists
+const uploadsDir = path.join(__dirname, '../uploads');
+if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+}
+
+// Serve static files from uploads directory
+app.use('/uploads', express.static(uploadsDir));
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/career', careerRoutes);
-app.use('/api/jobs', jobRoutes);
 app.use('/api/jobs', jobRoutes);
 
 app.get('/api/health', (req, res) => {

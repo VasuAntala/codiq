@@ -30,6 +30,24 @@ router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }));
+// Public: Get a single job vacancy
+router.get('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.params;
+        const job = yield db_1.default.jobVacancy.findUnique({
+            where: { id }
+        });
+        if (!job) {
+            res.status(404).json({ error: 'Job not found' });
+            return;
+        }
+        res.json(job);
+    }
+    catch (error) {
+        console.error('Fetch job error:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}));
 // Protected: Create a new job vacancy (Admin only)
 router.post('/', auth_1.authenticateToken, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
