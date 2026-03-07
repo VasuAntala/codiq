@@ -79,8 +79,8 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-8 flex justify-center"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-50/50 backdrop-blur-sm px-4 py-1.5 text-xs sm:text-sm font-medium text-blue-700 shadow-sm transition-all hover:bg-blue-100/50">
-            <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-50/50 backdrop-blur-sm px-4 py-1.5 text-xs sm:text-sm font-medium text-blue-500 shadow-sm transition-all hover:bg-blue-100/50">
+            <span className="flex h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
             Trusted IT & Software Solutions
             <ChevronRight className="h-4 w-4 opacity-60" />
           </div>
@@ -88,29 +88,28 @@ export default function Hero() {
 
         {/* Dynamic Heading */}
         <div className="min-h-[140px] sm:min-h-[160px] md:min-h-[180px]">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-2"
-          >
-            <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-2"
+            >
               Next-Gen <br className="sm:hidden" />
-              <span className="bg-linear-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent px-2">
+              <span className="bg-linear-to-r from-blue-400 via-indigo-600 to-violet-600 bg-clip-text text-transparent px-2">
                 {currentText}
               </span>
-              <span className="inline-block w-[2px] h-[0.8em] bg-blue-600 ml-1 animate-caret" />
-            </h1>
-          </motion.div>
+              <span className="inline-block w-[2px] h-[0.8em] bg-blue-400 ml-1 animate-caret" />
+            </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            Products That Scale
-          </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Products That Scale
+            </motion.div>
+          </h1>
         </div>
 
         {/* Subtitle */}
@@ -134,8 +133,8 @@ export default function Hero() {
           <Button
             size="lg"
             className="w-full sm:w-auto h-14 rounded-2xl px-10 text-base font-semibold transition-all duration-300
-             bg-blue-600 text-white hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98]
-             shadow-xl shadow-blue-600/25"
+             bg-blue-400 text-white hover:bg-blue-500 hover:scale-[1.02] active:scale-[0.98]
+             shadow-xl shadow-blue-400/25"
             asChild
           >
             <Link href="/contact">

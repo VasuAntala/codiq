@@ -72,7 +72,7 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full">
+            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-400 uppercase bg-blue-50 rounded-full">
               The Codiq Edge
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
@@ -95,15 +95,15 @@ export default function WhyChooseUs() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               whileHover={{ y: -10 }}
-              className="group relative rounded-3xl border border-slate-100 bg-white p-8 md:p-10 transition-all duration-300 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5"
+              className="group relative rounded-3xl border border-slate-100 bg-white p-8 md:p-10 transition-all duration-300 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-400/5"
             >
               {/* Icon */}
-              <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:rotate-3 group-hover:scale-110">
+              <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-400 transition-all duration-500 group-hover:bg-blue-400 group-hover:text-white group-hover:rotate-3 group-hover:scale-110">
                 <item.icon className="h-6 w-6" />
               </div>
 
               {/* Content */}
-              <h3 className="mb-4 text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+              <h3 className="mb-4 text-xl font-bold text-slate-900 group-hover:text-blue-400 transition-colors">
                 {item.title}
               </h3>
 

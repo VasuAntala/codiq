@@ -34,13 +34,13 @@ export default function AboutPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <p className="text-sm font-semibold tracking-widest uppercase mb-4 bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                            <p className="text-sm font-semibold tracking-widest uppercase mb-4 bg-linear-to-r from-blue-400 to-indigo-600 bg-clip-text text-transparent">
                                 Our Identity
                             </p>
 
                             <h2 className="text-5xl font-extrabold leading-tight mb-8 text-slate-900">
                                 We build software <br />
-                                <span className="bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                                <span className="bg-linear-to-r from-blue-400 to-indigo-600 bg-clip-text text-transparent">
                                     that scales with ambition.
                                 </span>
                             </h2>
@@ -97,7 +97,7 @@ export default function AboutPage() {
                             whileHover={{ y: -8 }}
                             className="rounded-3xl bg-white p-12 border border-blue-100 transition hover:shadow-xl"
                         >
-                            <Target className="h-10 w-10 text-blue-600 mb-6" />
+                            <Target className="h-10 w-10 text-blue-400 mb-6" />
 
                             <h3 className="text-3xl font-bold text-slate-900 mb-6">
                                 Our Mission
@@ -161,7 +161,7 @@ export default function AboutPage() {
                         {/* Left: principles timeline */}
                         <div className="flex flex-col justify-center">
                             <div className="mb-16 max-w-2xl">
-                                <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-blue-600">
+                                <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-blue-400">
                                     Our Principles
                                 </p>
                                 <h2 className="text-4xl font-extrabold text-slate-900">

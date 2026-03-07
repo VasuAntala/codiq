@@ -74,7 +74,7 @@ export default function Services() {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.6 }}
                     >
-                        <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full">
+                        <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-400 uppercase bg-blue-50 rounded-full">
                             Our Expertise
                         </span>
                         <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
@@ -97,7 +97,7 @@ export default function Services() {
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.5, delay: i * 0.1 }}
                             whileHover={{ y: -10 }}
-                            className="group relative flex flex-col items-start rounded-3xl border border-slate-200 bg-white p-8 md:p-10 transition-all duration-300 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/10"
+                            className="group relative flex flex-col items-start rounded-3xl border border-slate-200 bg-white p-8 md:p-10 transition-all duration-300 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-400/10"
                         >
                             {/* Icon Wrapper */}
                             <div
@@ -105,13 +105,13 @@ export default function Services() {
                                     "mb-8 flex h-16 w-16 items-center justify-center rounded-2xl",
                                     "bg-slate-50 text-slate-900",
                                     "transition-all duration-500",
-                                    "group-hover:scale-110 group-hover:rotate-3 group-hover:bg-blue-600 group-hover:text-white"
+                                    "group-hover:scale-110 group-hover:rotate-3 group-hover:bg-blue-400 group-hover:text-white"
                                 )}
                             >
                                 <service.icon className="h-7 w-7 transition-all" />
                             </div>
 
-                            <h3 className="mb-4 text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                            <h3 className="mb-4 text-2xl font-bold text-slate-900 group-hover:text-blue-400 transition-colors">
                                 {service.title}
                             </h3>
 
@@ -120,12 +120,12 @@ export default function Services() {
                             </p>
 
                             {/* Decorative bar on hover */}
-                            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-blue-600 to-indigo-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-3xl" />
+                            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-blue-400 to-indigo-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-3xl" />
 
                             {/* CTA Link */}
                             <Link
                                 href="/services"
-                                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition-all hover:gap-3"
+                                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 transition-all hover:gap-3"
                             >
                                 Explore Service
                                 <ArrowUpRight className="h-4 w-4" />

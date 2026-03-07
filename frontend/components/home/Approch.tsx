@@ -20,7 +20,7 @@ export function Approach() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="mb-6 inline-block rounded-full bg-blue-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-700"
+                            className="mb-6 inline-block rounded-full bg-blue-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-500"
                         >
                             Our Approach
                         </motion.div>
@@ -105,7 +105,7 @@ function Principle({
             whileHover={{ y: -6 }}
             className="group rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-blue-300 hover:shadow-lg"
         >
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-all group-hover:bg-blue-600 group-hover:text-white">
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-400 transition-all group-hover:bg-blue-400 group-hover:text-white">
                 <Icon className="h-5 w-5" />
             </div>
 

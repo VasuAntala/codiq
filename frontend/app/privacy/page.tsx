@@ -118,7 +118,7 @@ export default function privacy() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 text-white font-medium hover:bg-blue-700 transition"
+                className="inline-flex items-center justify-center rounded-xl bg-blue-400 px-6 py-3 text-white font-medium hover:bg-blue-500 transition"
               >
                 Contact Support
               </Link>

@@ -12,7 +12,7 @@ export default function AdminLayout({
             <aside className="w-full md:w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0">
                 <div className="p-6 h-16 flex items-center border-b border-slate-200 dark:border-slate-800">
                     <Link href="/admin" className="flex items-center gap-2 font-bold text-xl text-slate-900 dark:text-white">
-                        <LayoutDashboard className="h-6 w-6 text-blue-600" />
+                        <LayoutDashboard className="h-6 w-6 text-blue-400" />
                         <span>Admin</span>
                     </Link>
                 </div>

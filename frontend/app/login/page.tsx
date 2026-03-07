@@ -61,7 +61,7 @@ export default function LoginPage() {
                 <Card className="glass relative z-10 border-slate-200/60 dark:border-slate-800/60 shadow-xl">
                     <CardHeader className="space-y-1 text-center">
                         <div className="flex justify-center mb-4">
-                            <div className="h-12 w-12 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/30 text-white font-bold text-xl">
+                            <div className="h-12 w-12 rounded-xl bg-gradient-to-tr from-blue-400 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/30 text-white font-bold text-xl">
                                 C
                             </div>
                         </div>
@@ -126,7 +126,7 @@ export default function LoginPage() {
 
                             <Button
                                 type="submit"
-                                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg shadow-blue-500/25"
+                                className="w-full bg-gradient-to-r from-blue-400 to-indigo-600 hover:from-blue-500 hover:to-indigo-700 text-white shadow-lg shadow-blue-500/25"
                                 disabled={isLoading}
                             >
                                 {isLoading ? (

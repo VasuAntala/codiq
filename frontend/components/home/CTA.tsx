@@ -13,7 +13,7 @@ export default function CTA() {
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.4, 0.3] }}
           transition={{ duration: 15, repeat: Infinity }}
-          className="absolute -top-[20%] -left-[10%] h-[600px] w-[600px] rounded-full bg-blue-600/20 blur-[120px]"
+          className="absolute -top-[20%] -left-[10%] h-[600px] w-[600px] rounded-full bg-blue-400/20 blur-[120px]"
         />
         <motion.div
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}

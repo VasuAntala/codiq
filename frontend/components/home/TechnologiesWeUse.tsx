@@ -61,7 +61,7 @@ export default function TechnologiesWeUse() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-600 uppercase bg-blue-100/50 rounded-full">
+              <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-400 uppercase bg-blue-100/50 rounded-full">
                 Our Tech Stack
               </span>
               <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
@@ -76,7 +76,7 @@ export default function TechnologiesWeUse() {
 
               <div className="mt-10 flex flex-wrap justify-center lg:justify-start gap-3">
                 {["Production-ready", "Scalable", "Secure"].map((tag) => (
-                  <span key={tag} className="px-5 py-2 rounded-full border border-blue-200 bg-white text-xs font-bold text-blue-700 shadow-sm">
+                  <span key={tag} className="px-5 py-2 rounded-full border border-blue-200 bg-white text-xs font-bold text-blue-500 shadow-sm">
                     {tag}
                   </span>
                 ))}
@@ -94,20 +94,20 @@ export default function TechnologiesWeUse() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ x: 10 }}
-                className="group relative flex flex-col sm:flex-row gap-6 p-6 sm:p-8 rounded-3xl border border-slate-200 bg-white transition-all duration-300 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-600/5"
+                className="group relative flex flex-col sm:flex-row gap-6 p-6 sm:p-8 rounded-3xl border border-slate-200 bg-white transition-all duration-300 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-400/5"
               >
                 {/* Icon */}
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-slate-50 text-slate-700 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:rotate-3">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-slate-50 text-slate-700 transition-all duration-500 group-hover:bg-blue-400 group-hover:text-white group-hover:rotate-3">
                   <item.icon className="h-7 w-7" />
                 </div>
 
                 {/* Content */}
                 <div>
                   <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <h3 className="text-xl font-bold text-slate-900 transition-colors group-hover:text-blue-600">
+                    <h3 className="text-xl font-bold text-slate-900 transition-colors group-hover:text-blue-400">
                       {item.title}
                     </h3>
-                    <span className="px-2 py-0.5 rounded-md bg-blue-50 text-[10px] font-bold text-blue-600 uppercase tracking-widest border border-blue-100">
+                    <span className="px-2 py-0.5 rounded-md bg-blue-50 text-[10px] font-bold text-blue-400 uppercase tracking-widest border border-blue-100">
                       {item.tech}
                     </span>
                   </div>

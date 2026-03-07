@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand Colors - Electric Blue & Deep Space */
-  --primary: #2563eb;
-  /* Blue-600 */
-  --primary-hover: #1d4ed8;
-  /* Blue-700 */
-  --primary-light: #dbeafe;
-  /* Blue-100 */
+  /* Codiq Official Brand Colors - Extracted from Logo */
+  --primary: #0072BC;
+  /* Primary Brand Blue */
+  --primary-hover: #005696;
+  /* Deep Support Blue */
+  --primary-light: #D1F2FF;
+  /* Soft Glow/Light Highlight */
+  --accent: #00ADEE;
+  /* Electric Cyan */
   --text-primary: #0f172a;
-  /* Slate-900 */
   --text-muted: #475569;
-  /* Slate-600 */
   --primary-foreground: 255, 255, 255;
 
   --secondary: 15, 23, 42;

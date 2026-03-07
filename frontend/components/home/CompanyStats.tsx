@@ -40,7 +40,7 @@ export default function CompanyStats() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full">
+            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-400 uppercase bg-blue-50 rounded-full">
               Our Track Record
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
@@ -64,9 +64,9 @@ export default function CompanyStats() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="group relative flex flex-col p-8 rounded-3xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 items-center lg:items-start text-center lg:text-left"
+              className="group relative flex flex-col p-8 rounded-3xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-400/5 items-center lg:items-start text-center lg:text-left"
             >
-              <div className="text-5xl font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+              <div className="text-5xl font-black tracking-tight text-slate-900 group-hover:text-blue-400 transition-colors">
                 {stat.value}
               </div>
 
@@ -79,7 +79,7 @@ export default function CompanyStats() {
               </p>
 
               {/* Decorative Line */}
-              <div className="mt-6 h-1 w-8 rounded-full bg-blue-100 group-hover:bg-blue-600 group-hover:w-16 transition-all duration-500" />
+              <div className="mt-6 h-1 w-8 rounded-full bg-blue-100 group-hover:bg-blue-400 group-hover:w-16 transition-all duration-500" />
             </motion.div>
           ))}
         </div>

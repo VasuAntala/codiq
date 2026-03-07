@@ -132,7 +132,7 @@ export default function JobsPage() {
                 <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Job Vacancies</h1>
                 <Dialog open={open} onOpenChange={setOpen}>
                     <DialogTrigger asChild>
-                        <Button className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
+                        <Button className="bg-blue-400 hover:bg-blue-500 text-white gap-2">
                             <Plus size={18} />
                             Add Job
                         </Button>
@@ -243,7 +243,7 @@ export default function JobsPage() {
                                     <TableCell className="font-medium">{job.title}</TableCell>
                                     <TableCell>{job.department}</TableCell>
                                     <TableCell>
-                                        <span className="inline-flex items-center rounded-full bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:ring-blue-400/30">
+                                        <span className="inline-flex items-center rounded-full bg-blue-50 px-2 py-1 text-xs font-medium text-blue-500 ring-1 ring-inset ring-blue-500/10 dark:bg-blue-400/10 dark:text-blue-400 dark:ring-blue-400/30">
                                             {job.type}
                                         </span>
                                     </TableCell>

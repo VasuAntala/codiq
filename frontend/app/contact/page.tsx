@@ -79,7 +79,7 @@ export default function ContactPage() {
 
                             <div className="space-y-6">
                                 <div className="flex items-start space-x-4">
-                                    <MapPin className="h-6 w-6 text-blue-600 mt-1" />
+                                    <MapPin className="h-6 w-6 text-blue-400 mt-1" />
                                     <div>
                                         <p className="font-medium text-slate-900">Our Office</p>
                                         <p className="text-slate-600">
@@ -89,7 +89,7 @@ export default function ContactPage() {
                                 </div>
 
                                 <div className="flex items-center space-x-4">
-                                    <Phone className="h-6 w-6 text-blue-600" />
+                                    <Phone className="h-6 w-6 text-blue-400" />
                                     <div>
                                         <p className="font-medium text-slate-900">Phone</p>
                                         <p className="text-slate-600">+91 81283 55328</p>
@@ -97,7 +97,7 @@ export default function ContactPage() {
                                 </div>
 
                                 <div className="flex items-center space-x-4">
-                                    <Mail className="h-6 w-6 text-blue-600" />
+                                    <Mail className="h-6 w-6 text-blue-400" />
                                     <div>
                                         <p className="font-medium text-slate-900">Email</p>
                                         <p className="text-slate-600">codiqsolutions@gmail.com</p>

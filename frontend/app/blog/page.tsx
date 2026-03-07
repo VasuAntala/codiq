@@ -36,11 +36,11 @@ export default function BlogPage() {
                 </div>
 
                 <div className="p-6">
-                  <span className="text-xs font-semibold text-blue-600 uppercase">
+                  <span className="text-xs font-semibold text-blue-400 uppercase">
                     {post.category}
                   </span>
 
-                  <h3 className="mt-3 text-xl font-bold text-black hover:text-blue-600 transition-colors">
+                  <h3 className="mt-3 text-xl font-bold text-black hover:text-blue-400 transition-colors">
 
                     <Link href={`/blog/${post.slug}`}>
                       {post.title}
@@ -55,7 +55,7 @@ export default function BlogPage() {
                     <span>{post.date}</span>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="text-blue-600 font-medium hover:underline"
+                      className="text-blue-400 font-medium hover:underline"
                     >
                       Read More →
                     </Link>

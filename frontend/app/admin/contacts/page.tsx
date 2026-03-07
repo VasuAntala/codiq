@@ -42,7 +42,7 @@ export default async function ContactsPage() {
                                         </div>
                                     </div>
                                     <div className="min-w-0 flex-auto">
-                                        <p className="text-sm font-semibold leading-6 text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">
+                                        <p className="text-sm font-semibold leading-6 text-slate-900 dark:text-white group-hover:text-blue-400 transition-colors">
                                             {submission.name}
                                         </p>
                                         <p className="mt-1 flex text-xs leading-5 text-slate-500">

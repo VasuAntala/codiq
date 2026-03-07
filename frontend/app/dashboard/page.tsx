@@ -11,7 +11,7 @@ export default function DashboardPage() {
             <header className="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                        <div className="p-2 rounded-lg bg-blue-600/10 text-blue-600 dark:text-blue-400">
+                        <div className="p-2 rounded-lg bg-blue-400/10 text-blue-400 dark:text-blue-400">
                             <Code2 className="h-5 w-5" />
                         </div>
                         <h1 className="text-lg font-semibold text-slate-900 dark:text-white">User Dashboard</h1>
@@ -35,7 +35,7 @@ export default function DashboardPage() {
                         </CardHeader>
                         <CardContent>
                             <p className="text-sm text-slate-500">You haven't started any projects yet.</p>
-                            <button className="mt-4 text-sm font-medium text-blue-600 flex items-center hover:underline">
+                            <button className="mt-4 text-sm font-medium text-blue-400 flex items-center hover:underline">
                                 Start a Project <ArrowUpRight className="ml-1 h-3 w-3" />
                             </button>
                         </CardContent>

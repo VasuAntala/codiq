@@ -170,9 +170,9 @@ export default function CareersPage() {
                                     variant="outline"
                                     className="
                     rounded-full
-                    border-blue-600
-                    text-blue-600
-                    hover:bg-blue-600
+                    border-blue-400
+                    text-blue-400
+                    hover:bg-blue-400
                     hover:text-white
                     transition
                   "
@@ -305,7 +305,7 @@ export default function CareersPage() {
                                             />
                                             <label
                                                 htmlFor="resume"
-                                                className="text-blue-600 font-medium cursor-pointer"
+                                                className="text-blue-400 font-medium cursor-pointer"
                                             >
                                                 Browse
                                             </label>
@@ -343,10 +343,10 @@ export default function CareersPage() {
                                     <Button
                                         type="submit"
                                         className="
-                w-full rounded-full bg-blue-600 py-3
+                w-full rounded-full bg-blue-400 py-3
                 text-sm font-semibold text-white
-                shadow-lg shadow-blue-600/20
-                hover:bg-blue-700 transition
+                shadow-lg shadow-blue-400/20
+                hover:bg-blue-500 transition
               "
                                     >
                                         Submit Application

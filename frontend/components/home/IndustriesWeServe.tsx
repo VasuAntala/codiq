@@ -65,7 +65,7 @@ export default function IndustriesWeServe() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full"
+            className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-400 uppercase bg-blue-50 rounded-full"
           >
             Our Expertise
           </motion.div>
@@ -100,11 +100,11 @@ export default function IndustriesWeServe() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               whileHover={{ x: 10 }}
-              className="group relative grid gap-6 p-6 sm:p-8 rounded-3xl border border-slate-100 bg-slate-50/50 transition-all duration-300 hover:bg-white hover:border-blue-200 hover:shadow-xl hover:shadow-blue-600/5 md:grid-cols-[240px_1fr_1fr]"
+              className="group relative grid gap-6 p-6 sm:p-8 rounded-3xl border border-slate-100 bg-slate-50/50 transition-all duration-300 hover:bg-white hover:border-blue-200 hover:shadow-xl hover:shadow-blue-400/5 md:grid-cols-[240px_1fr_1fr]"
             >
               {/* Industry */}
               <div className="flex items-center gap-5">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm border border-slate-100 text-blue-600 transition-all group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm border border-slate-100 text-blue-400 transition-all group-hover:bg-blue-400 group-hover:text-white group-hover:scale-110">
                   <item.icon className="h-7 w-7" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">
@@ -114,7 +114,7 @@ export default function IndustriesWeServe() {
 
               {/* Focus */}
               <div className="flex flex-col justify-center">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600/60 mb-2">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400/60 mb-2">
                   Key Focus
                 </span>
                 <p className="text-slate-700 font-medium">
@@ -124,7 +124,7 @@ export default function IndustriesWeServe() {
 
               {/* Solution */}
               <div className="flex flex-col justify-center">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600/60 mb-2">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400/60 mb-2">
                   Specialized Solutions
                 </span>
                 <p className="text-slate-600 leading-relaxed text-sm lg:text-base">
@@ -135,7 +135,7 @@ export default function IndustriesWeServe() {
               {/* Arrow Decoration */}
               <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:block opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="h-8 w-8 rounded-full bg-blue-50 flex items-center justify-center">
-                  <Rocket className="h-4 w-4 text-blue-600" />
+                  <Rocket className="h-4 w-4 text-blue-400" />
                 </div>
               </div>
             </motion.div>

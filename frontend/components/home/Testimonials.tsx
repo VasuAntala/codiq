@@ -76,7 +76,7 @@ export default function Testimonials() {
               className="relative"
             >
               {/* Quote Icon */}
-              <Quote className="mb-6 h-10 w-10 text-blue-600/30" />
+              <Quote className="mb-6 h-10 w-10 text-blue-400/30" />
 
               {/* Feedback */}
               <p className="mb-8 text-lg leading-relaxed text-slate-700">

@@ -40,12 +40,12 @@ export default function FAQ() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <span className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-600 uppercase bg-blue-100/50 rounded-full">
+                        <span className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-400 uppercase bg-blue-100/50 rounded-full">
                             <HelpCircle className="w-4 h-4" />
                             Frequently Asked Questions
                         </span>
                         <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-                            Got Questions? <span className="text-blue-600">We Have Answers.</span>
+                            Got Questions? <span className="text-blue-400">We Have Answers.</span>
                         </h2>
                     </motion.div>
                 </div>
@@ -61,7 +61,7 @@ export default function FAQ() {
                             className={cn(
                                 "group rounded-2xl border transition-all duration-300",
                                 openIndex === i
-                                    ? "border-blue-200 bg-white shadow-xl shadow-blue-600/5"
+                                    ? "border-blue-200 bg-white shadow-xl shadow-blue-400/5"
                                     : "border-slate-200 bg-white/50 hover:bg-white hover:border-blue-100"
                             )}
                         >
@@ -71,13 +71,13 @@ export default function FAQ() {
                             >
                                 <span className={cn(
                                     "text-lg font-semibold transition-colors",
-                                    openIndex === i ? "text-blue-600" : "text-slate-900 group-hover:text-blue-600"
+                                    openIndex === i ? "text-blue-400" : "text-slate-900 group-hover:text-blue-400"
                                 )}>
                                     {faq.question}
                                 </span>
                                 <ChevronDown className={cn(
                                     "h-5 w-5 text-slate-400 transition-transform duration-300",
-                                    openIndex === i && "rotate-180 text-blue-600"
+                                    openIndex === i && "rotate-180 text-blue-400"
                                 )} />
                             </button>
 

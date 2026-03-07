@@ -86,8 +86,8 @@ export function Footer() {
               {/* Social */}
               <div className="flex space-x-4 pt-2 mt-5">
                 <SocialLink href="#" icon={Twitter} />
-                <SocialLink href="#" icon={Github} />
-                <SocialLink href="#" icon={Linkedin} />
+                <SocialLink href="https://github.com/codiqsolutions" icon={Github} />
+                <SocialLink href="https://www.linkedin.com/company/codiq-it-solution/?viewAsMember=true" icon={Linkedin} />
               </div>
             </div>
           </div>
@@ -125,7 +125,7 @@ function SocialLink({
       rel="noopener noreferrer"
       className="h-10 w-10 flex items-center justify-center rounded-full
       bg-white/10 text-slate-300
-      hover:bg-blue-600 hover:text-white
+      hover:bg-blue-400 hover:text-white
       transition-all duration-300"
     >
       <Icon className="h-5 w-5" />

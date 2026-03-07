@@ -51,7 +51,7 @@ export default function ProductsPage() {
       <section className="bg-white py-32">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16 max-w-3xl">
-            <p className="text-sm font-semibold tracking-widest uppercase text-blue-600 mb-3">
+            <p className="text-sm font-semibold tracking-widest uppercase text-blue-400 mb-3">
               In Development
             </p>
             <h2 className="text-4xl font-extrabold text-slate-900">
@@ -73,7 +73,7 @@ export default function ProductsPage() {
               className="rounded-3xl border border-slate-200 bg-white p-10 transition hover:shadow-xl"
             >
               <div className="flex items-center justify-between mb-6">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-blue-400">
                   <Briefcase className="h-7 w-7" />
                 </div>
                 <span className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-1 text-sm font-medium text-amber-700">
@@ -97,7 +97,7 @@ export default function ProductsPage() {
                 <li>• Skill development & engagement features</li>
               </ul>
 
-              <div className="mt-8 inline-flex items-center gap-2 font-medium text-blue-600">
+              <div className="mt-8 inline-flex items-center gap-2 font-medium text-blue-400">
                 Product Preview <ArrowUpRight className="h-4 w-4" />
               </div>
             </motion.div>
@@ -149,8 +149,8 @@ export default function ProductsPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-20 max-w-3xl">
             <div className="flex items-center gap-3 mb-4">
-              <Sparkles className="h-6 w-6 text-blue-600" />
-              <p className="text-sm font-semibold tracking-widest uppercase text-blue-600">
+              <Sparkles className="h-6 w-6 text-blue-400" />
+              <p className="text-sm font-semibold tracking-widest uppercase text-blue-400">
                 Product Roadmap
               </p>
             </div>
@@ -187,14 +187,14 @@ export default function ProductsPage() {
                 transition={{ delay: i * 0.1 }}
                 className="rounded-2xl border border-blue-100 bg-white p-8"
               >
-                <Bot className="h-6 w-6 text-blue-600 mb-4" />
+                <Bot className="h-6 w-6 text-blue-400 mb-4" />
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">
                   {item.title}
                 </h3>
                 <p className="text-slate-600 text-sm mb-4">
                   {item.desc}
                 </p>
-                <span className="inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700">
+                <span className="inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-500">
                   Planned
                 </span>
               </motion.div>

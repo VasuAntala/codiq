@@ -74,7 +74,7 @@ export default async function CareersPage() {
                                             {app.description || "No description provided."}
                                         </p>
                                         <div className="mt-3">
-                                            <a href={app.resumeLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-500 hover:underline">
+                                            <a href={app.resumeLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium text-blue-400 hover:text-blue-500 hover:underline">
                                                 <FileText className="h-3.5 w-3.5" />
                                                 View Resume
                                             </a>

@@ -94,7 +94,7 @@ export default async function AdminDashboardPage() {
 
             <div className="mt-8 p-4 rounded-lg bg-blue-50 dark:bg-slate-900/50 border border-blue-100 dark:border-slate-800">
                 <h3 className="text-sm font-medium text-blue-800 dark:text-blue-300">Welcome to Codiq Admin</h3>
-                <p className="mt-1 text-sm text-blue-600 dark:text-slate-400">
+                <p className="mt-1 text-sm text-blue-400 dark:text-slate-400">
                     Use the sidebar to navigate between contact submissions and career applications.
                 </p>
             </div>
