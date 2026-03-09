@@ -140,7 +140,7 @@ export default function Hero() {
              hover:bg-(--primary-light)"
             asChild
           >
-            <Link href="/services">Our Services</Link>
+            <Link href="/services">Our Service</Link>
           </Button>
         </motion.div>
       </div>
